@@ -11,7 +11,7 @@ export default function Index() {
         renderItem={({ item, index }) => {
           return (
             <View>
-              <Pressable className="bg-amber-600 ">
+              <Pressable className="bg-amber-600 my-3 h-48 rounded-xl ">
                 <Text>{item.title}</Text>
               </Pressable>
             </View>
