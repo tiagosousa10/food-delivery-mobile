@@ -1,3 +1,4 @@
+import CartButton from "@/components/CartButton";
 import { images, offers } from "@/constants";
 import cn from "clsx";
 import { Fragment } from "react";
@@ -15,8 +16,6 @@ import "./globals.css";
 export default function Index() {
   return (
     <SafeAreaView className="flex-1 bg-white">
-      {/* header */}
-
       {/* items */}
       <FlatList
         data={offers}
@@ -65,6 +64,7 @@ export default function Index() {
         }}
         contentContainerClassName="pb-28 px-5"
         ListHeaderComponent={() => (
+          // HEADER
           <View className="flex-between flex-row w-full my-5 px-5 ">
             <View className="flex-start">
               <Text className="small-bold text-primary">DELIVER TO</Text>
@@ -78,7 +78,7 @@ export default function Index() {
               </TouchableOpacity>
             </View>
 
-            <Text>Cart</Text>
+            <CartButton />
           </View>
         )}
       />
