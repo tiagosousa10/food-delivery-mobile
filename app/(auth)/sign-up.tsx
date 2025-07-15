@@ -14,13 +14,13 @@ const SignUp = () => {
 
   const submit = async () => {
     if (!form.name || !form.email || !form.password) {
-      Alert.alert("Error", "Please enter valid email and password");
+      return Alert.alert("Error", "Please enter valid email and password");
     }
 
     setIsSubmitting(true);
 
     try {
-      Alert.alert("Success", "User signed in successfully");
+      Alert.alert("Success", "User signed up successfully");
       router.replace("/");
     } catch (error) {
       Alert.alert("Error", "Something went wrong: " + error);
