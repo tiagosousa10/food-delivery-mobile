@@ -28,10 +28,7 @@ export const createUser = async ({
 }: CreateUserParams) => {
   try {
     const newAccount = await account.create(ID.unique(), email, password, name);
-
-    if (!newAccount) {
-      throw new Error("User not created");
-    }
+    if (!newAccount) throw Error;
 
     await signIn({ email, password });
 
@@ -41,16 +38,16 @@ export const createUser = async ({
       appwriteConfig.databaseId,
       appwriteConfig.userCollectionId,
       ID.unique(),
-      {
-        accountId: newAccount.$id,
-        email,
-        name,
-        avatarUrl,
-      }
+      { email, name, accountId: newAccount.$id, avatar: avatarUrl }
     );
+  } catch (e) {
+    throw new Error(e as string);
+  }
+};
+export const signIn = async ({ email, password }: SignInParams) => {
+  try {
+    const session = await account.createEmailPasswordSession(email, password);
   } catch (error) {
     throw new Error(error as string);
   }
 };
-
-export const signIn = async ({ email, password }: SignInParams) => {};
