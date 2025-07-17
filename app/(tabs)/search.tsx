@@ -1,11 +1,11 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
 const Search = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Search</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
