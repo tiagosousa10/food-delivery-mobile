@@ -14,7 +14,12 @@ export const appwriteConfig = {
   projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
   platform: "com.tiago.fooddelivery",
   databaseId: "687545fa001b0d8f3dc6",
+  bucketId: "68794383003c0a52599f",
   userCollectionId: "6875462200015b48619a",
+  categoriesCollectionId: "687940b800242e8b541d",
+  menuCollectionId: "6879412f001d1b5d7af4",
+  customizationsCollectionId: "68794211003cda685343",
+  menuCustomizationCollectionId: "687942b1002855fde443",
 };
 
 export const client = new Client();
