@@ -34,7 +34,7 @@ interface DummyData {
 // ensure dummyData has correct shape
 const data = dummyData as DummyData;
 
-async function clearAll(collectionId: string): Promise<void> {
+export async function clearAll(collectionId: string): Promise<void> {
   const list = await databases.listDocuments(
     appwriteConfig.databaseId,
     collectionId
@@ -47,7 +47,7 @@ async function clearAll(collectionId: string): Promise<void> {
   );
 }
 
-async function clearStorage(): Promise<void> {
+export async function clearStorage(): Promise<void> {
   const list = await storage.listFiles(appwriteConfig.bucketId);
 
   await Promise.all(
@@ -57,7 +57,7 @@ async function clearStorage(): Promise<void> {
   );
 }
 
-async function uploadImageToStorage(imageUrl: string) {
+export async function uploadImageToStorage(imageUrl: string) {
   const response = await fetch(imageUrl);
   const blob = await response.blob();
 
@@ -77,7 +77,7 @@ async function uploadImageToStorage(imageUrl: string) {
   return storage.getFileViewURL(appwriteConfig.bucketId, file.$id);
 }
 
-async function seed(): Promise<void> {
+export async function seed(): Promise<void> {
   // 1. Clear all
   await clearAll(appwriteConfig.categoriesCollectionId);
   await clearAll(appwriteConfig.customizationsCollectionId);
