@@ -1,7 +1,6 @@
 import { MenuItem } from "@/type";
 import React from "react";
 import { Image, Platform, Text, TouchableOpacity } from "react-native";
-console.log("🚀 ~ uploadImageToStorage:", uploadImageToStorage);
 
 const MenuCard = ({ item: { name, price, image_url } }: { item: MenuItem }) => {
   //   console.log("🚀 ~ MenuCard ~ image_url:", image_url);
