@@ -7,9 +7,16 @@ const SearchBar = () => {
   const params = useLocalSearchParams<{ query?: string }>();
   const [query, setQuery] = useState(params.query);
 
+  // const debouncedSearch = useDebouncedCallback(
+  //   (text: string) => router.push(`/search?query=${text}`),
+  //   500
+  // );
+
   const handleSearch = (text: string) => {
     setQuery(text);
-    router.setParams({ query: text });
+    // debouncedSearch(text);
+
+    if (!text) router.setParams({ query: undefined });
   };
 
   return (
