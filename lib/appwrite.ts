@@ -114,7 +114,11 @@ export const getCategories = async () => {
       appwriteConfig.categoriesCollectionId
     );
 
-    return categories.documents;
+    return categories.documents.map((doc) => ({
+      $id: doc.$id,
+      name: doc.name,
+      description: doc.description,
+    }));
   } catch (error) {
     throw new Error(error as string);
   }
