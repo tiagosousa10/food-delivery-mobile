@@ -5,6 +5,7 @@ import { PaymentInfoStripeProps } from "@/type";
 import cn from "clsx";
 import React from "react";
 import { FlatList, SafeAreaView, Text, View } from "react-native";
+import CartItem from "../../components/CartItem";
 
 const PaymentInfoStripe = ({
   label,
@@ -32,7 +33,7 @@ const Cart = () => {
     <SafeAreaView className="bg-white h-full">
       <FlatList
         data={items}
-        renderItem={({ item }) => <Text>Cart Item</Text>}
+        renderItem={({ item }) => <CartItem item={item} />}
         keyExtractor={(item) => item.id}
         contentContainerClassName="pb-28 px-5 pt-5"
         ListHeaderComponent={() => <CustomHeader title="Your Cart" />}
