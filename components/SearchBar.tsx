@@ -19,6 +19,10 @@ const SearchBar = () => {
     if (!text) router.setParams({ query: undefined });
   };
 
+  const handleSubmit = () => {
+    if (query?.trim()) router.setParams({ query });
+  };
+
   return (
     <View className="searchbar">
       <TextInput
@@ -26,12 +30,14 @@ const SearchBar = () => {
         placeholder="Search for pizzas, burguers..."
         value={query}
         onChangeText={handleSearch}
+        onSubmitEditing={handleSubmit}
         placeholderTextColor={"#a0a0a0"}
+        returnKeyType="search"
       />
 
       <TouchableOpacity
         className="pr-5"
-        onPress={() => console.log("search pressed")}
+        onPress={() => router.setParams({ query })}
       >
         <Image
           source={images.search}
